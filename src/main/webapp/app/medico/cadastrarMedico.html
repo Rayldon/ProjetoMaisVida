@@ -1,0 +1,100 @@
+<meta meta charset=utf-8>
+<link rel="stylesheet" type="text/css" href="app/medico/style.css" />
+<div class="panel-body" style="margin:0px 20px 0px 10px">
+	
+	<div class="alert alert-success" role="alert" ng-if="success">
+		<strong>{{success}}</strong>.
+	</div>
+	<div class="alert alert-danger" role="alert" ng-if="error">
+		<strong>{{error}}</strong>
+	</div>
+	<div class="row">
+		<div class="col-lg-6">
+			<h3>Cadastro de Médico</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-4">
+			<label>Primeiro Nome</label>
+			<input type="text" ng-model="primeiroNome" class="form-control"/>
+		</div>
+		<div class="col-lg-4">
+			<label>Último Nome</label>
+			<input type="text" ng-model="ultimoNome" class="form-control"/>
+		</div>
+		<div class="col-lg-4">
+			<label>Especialidade</label>
+			<select ng-model="especialidade" class="form-control">
+				<option value=""></option>
+				<option value="Cardiologista">Cardiologista</option>
+				<option value="Ginecologista">Ginecologista</option>
+				<option value="Neurologista">Neurologista</option>
+				<option value="Pneumologista">Pneumologista</option>
+				<option value="Urologista">Urologista</option>
+			</select>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-lg-4">
+			<label>Email</label>
+			<input type="text" ng-model="email" class="form-control"/>
+		</div>
+		<div class="col-lg-1">
+			<label>Ativo</label>
+			<div class="checkbox-btn">
+				<input type="checkbox" ng-model="ativo" />
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<label>Status</label>
+			<div class="radio-btn">
+				<input type="radio" id="status1" name="status" ng-model="status" ng-value="1" />
+				<label for="status1" onclick>Ocupado</label>
+				<input type="radio" id="status2" name="status" ng-model="status" ng-value="2" />
+				<label for="status2" onclick>Disponível</label>
+			</div>
+		</div>
+	</div>
+	<br />
+	
+	<div class="row">
+		<div class="col-lg-4">
+			<label>Senha</label>
+			<input type="password" ng-model="senha" class="form-control"/>
+		</div>
+	</div>
+	<br />
+	
+	<div class="row">
+		<div class="col-lg-4">
+			<label>Confirmar Senha</label>
+			<input type="password" ng-model="confirmSenha" class="form-control"/>
+		</div>
+	</div>
+	
+	<br />
+	<div class="row">
+		<div class="col-lg-2">
+			<label>Estado</label>
+			<select ng-model="uf" class="form-control" ng-change="listarMunicipios();">
+				<option value="">Selecione</option>
+				<option ng-repeat="u in ufs" value="{{u.uf}}">{{u.uf}}</option>
+			</select>
+		</div>
+		<div class="col-lg-2">
+			<label>Município</label>
+			<select ng-model="municipio" class="form-control">
+				<option value="">Selecione</option>
+				<option ng-repeat="m in municipios" value="{{m.id}}">{{m.municipio}}</option>
+			</select>
+		</div>
+	</div>
+	<br />
+	
+	<div class="row">
+		<div class="col-lg-4">
+			<button ng-click="salvar()">Salvar</button>
+		</div>
+	</div>
+</div>

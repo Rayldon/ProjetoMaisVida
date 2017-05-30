@@ -1,0 +1,29 @@
+<meta meta charset=utf-8>
+<link rel="stylesheet" type="text/css" href="app/medico/style.css" />
+
+<div class="panel-body" style="margin:0px 20px 0px 10px; width:100%">
+	<div class="alert alert-danger" role="alert" ng-if="error">
+		<strong>{{error}}</strong>
+	</div>
+	
+	<table border="1" ng-if="medicos" class="table-striped" style="width:100%">
+		<tr>
+			<th width="5%">#</th>
+			<th width="15%">Primeiro Nome</th>
+			<th width="20%">Último Nome</th>
+			<th width="20%">Email</th>
+			<th width="20%">Especialidade</th>
+			<th width="5%">Ativo</th>
+			<th width="15%">Situacao</th>
+		</tr>
+		<tr ng-repeat="medico in medicos">
+			<td>{{$index}}</td>
+			<td>{{medico.primeiroNome}}</td>
+			<td>{{medico.ultimoNome}}</td>
+			<td>{{medico.email}}</td>
+			<td>{{medico.especialidade}}</td>
+			<td align="center"><input type="checkbox" disabled ng-checked="medico.ativo" /></td>
+			<td align="center">{{situacao(medico.status)}}</td>
+		</tr>
+	</table>
+</div>
